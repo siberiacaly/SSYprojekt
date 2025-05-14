@@ -4,7 +4,7 @@
 
 Cílem bylo vytvořit funkční aplikaci zajišťující **časovou synchronizaci v síti**.  
 Použit je **GPS přijímač** a čas získaný z něj (ve formátu NMEA zpráv) - tento čas se dále parsuje.  
-Časové údaje jsou dále přenášeny pomocí **protokolu LWM (Low-power Wireless Mesh)** mezi dvěma uzly v síti.  
+Časové údaje jsou dále přenášeny pomocí **protokolu LWM (LightWeight Mesh)** mezi dvěma uzly v síti.  
 Součástí je také **měření doby letu signálu (ToF)** pro korekci zpoždění při přenosu.
 
 ---
