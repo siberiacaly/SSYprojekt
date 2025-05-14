@@ -38,6 +38,7 @@ Po přijetí `ACK` pak **Master** provede výpočet:
 \[
 \text{RTT} = \text{TRF} - \text{TSP}
 \]
+
 \[
 \text{ToF} = \frac{\text{RTT} - (\text{TSR} - \text{TRP})}{2}
 \]
@@ -73,4 +74,4 @@ Výstupní informace obsahují počítané hodnoty RTT a ToF v jednotkách tick�
 
 ---
 
-> Projekt vypracován jako semestrální úloha pro kurz **MPC-SSY** (Spolehlivé systémy) na VUT FIT.
+> Projekt byl vypracován jako semestrální úloha pro kurz **MPC-SSY** (Bezdrátové senzorové sítě) na VUT FEKT.
