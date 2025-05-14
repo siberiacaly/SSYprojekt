@@ -49,6 +49,11 @@ Výstupní informace obsahují počítané hodnoty RTT a ToF v jednotkách tick�
 
 ---
 
+## Odkaz na všechny kódy
+
+- [💾 Master zařízení](https://github.com/siberiacaly/SSYprojekt/tree/main/projektfinalv2/LWM_MSSY_master/LWM_MSSY)
+- [💾 Slave zařízení](https://github.com/siberiacaly/SSYprojekt/tree/main/projektfinalv2/LWM_MSSY_slave/LWM_MSSY)
+
 ## Shrnutí funkcionality
 
 - ✅ Parsování času z GPS (přes UART0)
