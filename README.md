@@ -76,4 +76,4 @@ Výstupní informace obsahují počítané hodnoty RTT a ToF v jednotkách tick�
 
 ---
 
-> Projekt byl vypracován jako semestrální úloha pro kurz **MPC-SSY** (Bezdrátové senzorové sítě) na VUT FEKT.
+> Projekt byl vypracován Bc. Tomášem Calábkem jako semestrální úloha pro kurz **MPC-SSY** (Bezdrátové senzorové sítě) na VUT FEKT.
