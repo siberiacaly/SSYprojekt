@@ -51,7 +51,7 @@ void confirm(NWK_DataReq_t *req) {
 
 bool masterDataInd(NWK_DataInd_t *ind) {
 	if (strncmp((char*)ind->data, "ACK,", 4) == 0 && gps_time_valid) {
-		gps_time_valid = 0; // ? spot?ebuj validní ?as
+		gps_time_valid = 0; 
 
 		uint16_t TRP = 0, TSR = 0, TRF = TCNT1;
 		sscanf((char*)ind->data, "ACK,TRP=%hu,TSR=%hu", &TRP, &TSR);
@@ -80,20 +80,20 @@ void HAL_UartBytesReceived(uint16_t bytes)
 
 void board_init() {
 	cli();
-	UART0_init(9600);      // GPS vstup
-	UART1_init(38400);     // terminál
+	UART0_init(9600);     
+	UART1_init(38400);     
 	sei();
 }
 
 void timer1_init() {
 	TCCR1A = 0;
-	TCCR1B = (1 << CS11) | (1 << CS10); // prescaler 64 ? 250 kHz
+	TCCR1B = (1 << CS11) | (1 << CS10); 
 	TCNT1 = 0;
 }
 
 void timer2_init() {
 	cli();
-	TCCR2A = (1 << WGM21);  // CTC režim
+	TCCR2A = (1 << WGM21);  // CTC reï¿½im
 	TCCR2B = (1 << CS22) | (1 << CS21) | (1 << CS20); // prescaler 1024
 	OCR2A = 78;  // 10 ms
 	TIMSK2 |= (1 << OCIE2A);
@@ -108,9 +108,9 @@ int main(void) {
 	SYS_Init();
 	HAL_BoardInit();
 	HAL_UartInit(38400);
-	stdout = &uart_str;  // ? D?LEŽITÉ PRO FUNK?NÍ printf()
+	stdout = &uart_str;  
 
-	NWK_SetAddr(APP_ADDR);       // master = 0
+	NWK_SetAddr(APP_ADDR);       
 	NWK_SetPanId(APP_PANID);
 	PHY_SetChannel(APP_CHANNEL);
 	PHY_SetRxState(true);
@@ -134,14 +134,14 @@ ISR(USART0_RX_vect) {
 		NMEAData data;
 		NMEA_ParseSentence((char*)nmea_buffer, &data);
 
-		// Zkontroluj validitu ?asu: HH:MM:SS,xxx UTC
+		
 		if (data.time[0] >= '0' && data.time[0] <= '9' &&
 		strcmp(data.time, last_gps_time) != 0) {
 
 			strcpy(last_gps_time, data.time);
 			gps_time_valid = 1;
 
-			// Výpis rovnou
+			
 			printf("Cas z GPS: %s\r\n", last_gps_time);
 		}
 
@@ -166,13 +166,13 @@ ISR(TIMER2_COMPA_vect) {
 		TSP = TCNT1;
 		TSP_last = TSP;
 
-		// ?? Dynamická alokace bufferu
+		/
 		char *msg = malloc(64);
 		if (!msg) return;
 
 		snprintf(msg, 64, "SYNC,%s,TSP=%u", last_gps_time, TSP);
 
-		// ?? Dynamická alokace struktury požadavku
+		
 		NWK_DataReq_t *req = malloc(sizeof(NWK_DataReq_t));
 		if (!req) {
 			free(msg);

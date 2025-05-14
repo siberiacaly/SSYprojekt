@@ -42,13 +42,13 @@ void confirm(NWK_DataReq_t *req) {
 
 void HAL_UartBytesReceived(uint16_t bytes)
 {
-	(void)bytes; // zatím ne?ešíme UART z halUart
+	(void)bytes; 
 }
 bool appDataInd(NWK_DataInd_t *ind)
 {
 	if (ind->size > 0 && strncmp((char*)ind->data, "SYNC,", 5) == 0) {
 		TRP = TCNT1;
-		_delay_us(100);  // simulace zpracování
+		_delay_us(100);  
 		TSR = TCNT1;
 
 		printf("SYNC PRIJAT: %s\r\n", ind->data);
@@ -89,7 +89,7 @@ timer1_init();
 	SYS_Init();
 	HAL_BoardInit();
 	HAL_UartInit(38400);
-	stdout = &uart_str;  // ? D?LEŽITÉ PRO FUNK?NÍ printf()
+	stdout = &uart_str;  
 
 	NWK_SetAddr(APP_ADDR);
 	NWK_SetPanId(APP_PANID);
