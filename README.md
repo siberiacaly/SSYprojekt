@@ -35,13 +35,8 @@ Ta obsahuje aktuální čas a interní časovou značku `TSP`.
 
 Po přijetí `ACK` pak **Master** provede výpočet:
 
-\[
-\text{RTT} = \text{TRF} - \text{TSP}
-\]
-
-\[
-\text{ToF} = \frac{\text{RTT} - (\text{TSR} - \text{TRP})}{2}
-\]
+RTT  = TRF - TSP  
+ToF  = (RTT - (TSR - TRP)) / 2
 
 > Všechny časové značky jsou v jednotkách ticků časovače s frekvencí 250 kHz (prescaler 64).
 
