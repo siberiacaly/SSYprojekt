@@ -3,7 +3,7 @@
 ## Zadání projektu
 
 Cílem bylo vytvořit funkční aplikaci zajišťující **časovou synchronizaci v síti**.  
-Použit je **GPS přijímač** a čas získaný z něj (ve formátu NMEA zpráv).  
+Použit je **GPS přijímač** a čas získaný z něj (ve formátu NMEA zpráv) - tento čas se dále parsuje.  
 Časové údaje jsou dále přenášeny pomocí **protokolu LWM (Low-power Wireless Mesh)** mezi dvěma uzly v síti.  
 Součástí je také **měření doby letu signálu (ToF)** pro korekci zpoždění při přenosu.
 
@@ -16,6 +16,7 @@ Z NMEA vět typu `$GPGGA`, `$GPRMC` je extrahováno UTC datum a čas.
 
 - Komunikace probíhá přes **UART0** na rychlosti 9600 bps.
 - Výstup (čas v UTC) je vypsán na **UART1** (38400 bps) pro ladění v terminálu.
+- Použitý modul: **GTS-4E-60** s výstupem NMEA, připojený přes konektor EXT1.
 
 ### Ukázka výstupu (z terminálu master zařízení):
 
@@ -62,6 +63,7 @@ Výstupní informace obsahují počítané hodnoty RTT a ToF v jednotkách tick�
 ## Použité platformy a technologie
 
 - Platforma: **Atmel ATmega256RFR2 Xplained Pro**
+- GPS modul: **GTS-4E-60**, NMEA výstup, aktivní anténa MOLEX
 - Jazyk: **C (AVR-GCC)**
 - LWM stack: **NWK/PHY od Atmelu**
 - Terminál: **PuTTY, 38400 bps**
